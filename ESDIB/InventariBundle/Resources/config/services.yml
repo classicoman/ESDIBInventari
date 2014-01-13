@@ -1,0 +1,7 @@
+parameters:
+#    esdib_inventari.example.class: ESDIB\InventariBundle\Example
+
+services:
+#    esdib_inventari.example:
+#        class: %esdib_inventari.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
