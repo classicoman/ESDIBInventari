@@ -3,10 +3,10 @@ esdib_inventari_main:
     path:     /
     defaults: { _controller: ESDIBInventariBundle:Main:index }
 
-# Llista els items de l'Inventari
-inventari_llista_items:
-    path: /items
-    defaults: { _controller: ESDIBInventariBundle:Items:index }
+# Mostra tots els Items de la taula 'Items'
+listitems:
+    path:     /items/
+    defaults: { _controller: ESDIBInventariBundle:ListItems:show }
 
 # Selecciona un Item
 item:

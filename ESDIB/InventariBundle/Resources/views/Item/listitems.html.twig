@@ -1,0 +1,10 @@
+{% extends "ESDIBInventariBundle::layout.html.twig" %}
+
+{% block body %}
+{# Aquest boci de codi llista els items #}
+	<ul id="items">
+		{% for item in items %}
+	   <li>{{item.nom}}</li>
+		{% endfor %}
+	</ul>
+{% endblock %}

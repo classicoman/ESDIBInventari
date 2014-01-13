@@ -14,8 +14,8 @@ class ItemController extends Controller
 		   ->find($id);
 		   
 		if (!$item) {
-		    throw $this->createNotFoundExcepction(
-			    'No he trobat l\'item '.$id
+		    throw $this->createNotFoundException(
+			    'No he trobat l\'item amb identificador = '.$id
 			);
 		}
 		
