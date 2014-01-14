@@ -32,6 +32,26 @@ class Item
 	*/	
 	protected $descripcio;
 
+	/**
+	* @ORM\Column(type="integer")
+	*/	
+	protected $unitats;
+
+	/**
+	* @ORM\Column(type="date")
+	*/	
+	protected $data_alta;
+
+	/**
+	* @ORM\Column(type="date")
+	*/	
+	protected $data_baixa;
+
+
+	
+	 
+// MÈTODES
+ 
     /**
      * Get id
      *
@@ -109,5 +129,74 @@ class Item
     public function getDescripcio()
     {
         return $this->descripcio;
+    }
+
+    /**
+     * Set unitats
+     *
+     * @param integer $unitats
+     * @return Item
+     */
+    public function setUnitats($unitats)
+    {
+        $this->unitats = $unitats;
+
+        return $this;
+    }
+
+    /**
+     * Get unitats
+     *
+     * @return integer 
+     */
+    public function getUnitats()
+    {
+        return $this->unitats;
+    }
+
+    /**
+     * Set data_alta
+     *
+     * @param \DateTime $dataAlta
+     * @return Item
+     */
+    public function setDataAlta($dataAlta)
+    {
+        $this->data_alta = $dataAlta;
+
+        return $this;
+    }
+
+    /**
+     * Get data_alta
+     *
+     * @return \DateTime 
+     */
+    public function getDataAlta()
+    {
+        return $this->data_alta;
+    }
+
+    /**
+     * Set data_baixa
+     *
+     * @param \DateTime $dataBaixa
+     * @return Item
+     */
+    public function setDataBaixa($dataBaixa)
+    {
+        $this->data_baixa = $dataBaixa;
+
+        return $this;
+    }
+
+    /**
+     * Get data_baixa
+     *
+     * @return \DateTime 
+     */
+    public function getDataBaixa()
+    {
+        return $this->data_baixa;
     }
 }

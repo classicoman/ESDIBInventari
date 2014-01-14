@@ -20,7 +20,11 @@ class ListItemsController extends Controller
 		}
 		
 		//Pinta la Plantilla amb els Items
-		return $this->render('ESDIBInventariBundle:Item:listitems.html.twig', array('items' => $items) );
+		return $this->render('ESDIBInventariBundle:Items:items.html.twig', 
+			array('files' => $items,
+			'max_rows' => 5, 
+			'rotuls' => array('id','nom','preu') 
+		));
 	}
 }
 

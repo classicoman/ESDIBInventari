@@ -1,0 +1,19 @@
+{% extends "ESDIBInventariBundle:Items:layout.html.twig" %}
+
+{% block rotuls %}
+{# Aquest boci de codi llista els items #}
+    {% for rotul in rotuls %}
+	   <td>{{rotul}}</td>
+	{% endfor %}
+{% endblock %}
+
+{% block files %}
+{# Aquest boci de codi llista els items #}
+    {% for fila in files %}
+	<tr>
+	   <td>{{fila.id}}</td>
+	   <td>{{fila.nom}}</td>
+	   <td>{{fila.preu}}</td>
+	</tr>	
+	{% endfor %}
+{% endblock %}
