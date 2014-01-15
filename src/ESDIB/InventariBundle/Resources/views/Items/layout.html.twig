@@ -1,0 +1,53 @@
+<html>
+  <head>
+	<link href="{{ asset('bundles/ESDIBInventari/css/listings.css') }}" rel="stylesheet" />
+  </head>
+<body>
+
+
+
+<div id="listing_header">
+    
+    <div id="pageName">Items Actius</div>
+    
+    <div id="row_navigator">
+        <!-- First MAX_ROWS registers --> 
+        <div id="prev_and_next">
+            <div id="first_registers" onmouseover="" style="cursor: pointer;" 
+                 class="{{first!=0 ? "active" : "disabled"}}"
+                 onclick="window.location='{{ path( 'show_items',{'max': max, 'first': 0} ) }}'">
+            Principi</div>
+                 
+            <div id="prev_registers" onmouseover="" style="cursor: pointer;"
+                 class="{{first!=0 ? "active" : "disabled"}}"
+                 onclick="window.location='{{ path( 'show_items',{'max': max, 'first': first-max} ) }}'">
+            Previs</div>
+            <!-- Next MAX_ROWS registers --> 
+            <div id="next_registers" onmouseover="" style="cursor: pointer;" 
+                 class="{{ (first+max)<num_of_items ? "active" : "disabled" }}"
+                 onclick="window.location='{{ path( 'show_items',{'max': max, 'first': first+max} ) }}'">
+            Pròxs.</div>
+        </div>
+        
+        <div id="num_of_rows"> {{num_of_items}} items </div>
+    </div>
+    
+    <div class="count_registers">
+        {% block select_rows %}{% endblock %}
+    </div>
+    
+</div>
+
+<!-- PRINT FORM AND ROWS -->
+
+<!-- VIEWER --><!-- Rows -->
+    <table class="listing">
+        <thead><tr>
+            {% block rotuls %}{% endblock %}
+        </tr></thead>  
+        <tbody>
+            {% block files %}{% endblock %}
+        </tbody>        
+    </table>
+</body>
+</html>
