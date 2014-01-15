@@ -1,7 +1,0 @@
-parameters:
-#    fenix_prova.example.class: Fenix\ProvaBundle\Example
-
-services:
-#    fenix_prova.example:
-#        class: %fenix_prova.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,3 +1,0 @@
-hello:
-    path: /prova/{name}
-    defaults: { _controller: FenixProvaBundle:Prova:index }
