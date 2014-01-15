@@ -8,6 +8,9 @@
 
 <div id="listing_header">
     <div id="pageName">Items</div>
+    <div class="count_registers">
+        {% block select_rows %}{% endblock %}
+    </div>
 </div>
 
 <!-- PRINT FORM AND ROWS -->
@@ -15,10 +18,10 @@
 <!-- VIEWER --><!-- Rows -->
     <table class="listing">
         <thead><tr>
-			{% block rotuls %}{% endblock %}
+            {% block rotuls %}{% endblock %}
         </tr></thead>  
         <tbody>
-			{% block files %}{% endblock %}
+            {% block files %}{% endblock %}
         </tbody>        
     </table>
 </body>

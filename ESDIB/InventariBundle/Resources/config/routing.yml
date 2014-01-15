@@ -4,9 +4,15 @@ esdib_inventari_main:
     defaults: { _controller: ESDIBInventariBundle:Main:index }
 
 # Mostra tots els Items de la taula 'Items'
-listitems:
-    path:     /items/
+#listitems:
+#    path:     /items/
+#    defaults: { _controller: ESDIBInventariBundle:ListItems:show }
+
+# Mostra els items indicats per 'max_rows' els Items de la taula 'Items'
+show_items:
+    path:     /items/max_rows/
     defaults: { _controller: ESDIBInventariBundle:ListItems:show }
+
 
 # Selecciona un Item
 item:
