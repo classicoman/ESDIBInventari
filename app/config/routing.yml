@@ -1,0 +1,4 @@
+# app/config/routing.yml
+esdib_inventari:
+    resource: "@ESDIBInventariBundle/Resources/config/routing.yml"
+    prefix:   /
