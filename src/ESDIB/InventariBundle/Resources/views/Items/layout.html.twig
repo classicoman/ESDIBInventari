@@ -63,7 +63,7 @@
         var nouValor = document.getElementById('max_rows').value;
         //Ajax mitjançant JQUERY
         //Directori base: la primera part és bona de treure, la segona no existeix si root està ben configurat.
-        var directoryBase = window.location.origin + '/Symfony/web/app_dev.php/';  
+        var directoryBase = window.location.origin + '/Symfony/web/app_dev.php/';
         $.ajax({
             type: "GET", /* Crec que tanmateix, per defecte és GET - xxtoni */
             url: directoryBase+'listItemsX/max/'+nouValor+'/first/{{first}}',

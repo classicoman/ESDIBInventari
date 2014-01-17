@@ -1,7 +1,7 @@
 parameters:
-#    esdib_inventari.example.class: ESDIB\InventariBundle\Example
+    esdib.controller.listitems.class: ESDIB\InventariBundle\Controller\ListItemsController
 
 services:
-#    esdib_inventari.example:
-#        class: %esdib_inventari.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    esdib.main_items_controller:
+        class:  "%esdib.controller.listitems.class%"
+

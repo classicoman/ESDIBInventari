@@ -3,15 +3,29 @@
 namespace ESDIB\InventariBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use ESDIB\InventariBundle\Controller\ListItemsController;
+
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class MainController extends Controller
 {
-    public function indexAction(/*$name*/)
-    {
-        $main = new ListItemsController();
-        $main->showAction(10,0);
-        //return $this->render('ESDIBInventariBundle:Default:index.html.twig'/*, array('name' => $name)*/);
+    public function indexAction()
+    {        
+        //http://symfony.com/doc/current/components/http_foundation/sessions.html
+        $session = new Session();
+        $session->start();
+        //Inicio sessió
+        $session->set('name','toni');
+        if ($session->get('name'))
+        {
+            $response = $this->forward('ESDIBInventariBundle:ListItems:show', array(
+                'max' => 5,
+                'first' => 0,
+            ));
+            return $response;
+        }
+        else {
+            return $this->render('ESDIBInventariBundle:Default:nosession.html.twig', array('name' => $session->get('name')));
+        }
     }
 }
 ?>

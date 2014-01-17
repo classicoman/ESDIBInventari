@@ -11,7 +11,8 @@
 
 index:
     path:     /
-    defaults: { _controller: ESDIBInventariBundle:ListItems:show }
+    defaults: { _controller: ESDIBInventariBundle:Main:index }
+#    defaults: { _controller: ESDIBInventariBundle:ListItems:show }
 
 # Mostra els items indicats per 'max_rows' els Items de la taula 'Items'
 show_items:
