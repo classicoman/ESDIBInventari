@@ -1,6 +1,10 @@
 <html>
   <head>
-	<link href="{{ asset('bundles/ESDIBInventari/css/listings.css') }}" rel="stylesheet" />
+	<link href="{{ asset('css/listings.css') }}" rel="stylesheet" />
+        <!-- Jquery min:  per facilitar el temps de càrrega -->
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>    
+
   </head>
 <body>
 
@@ -51,3 +55,22 @@
     </table>
 </body>
 </html>
+
+
+<script>
+    // ON Change Num of Rows
+    $('#max_rows').change ( function(e) {
+        var nouValor = document.getElementById('max_rows').value;
+        //Ajax mitjançant JQUERY
+        //Directori base: la primera part és bona de treure, la segona no existeix si root està ben configurat.
+        var directoryBase = window.location.origin + '/Symfony/web/app_dev.php/';  
+        $.ajax({
+            type: "GET", /* Crec que tanmateix, per defecte és GET - xxtoni */
+            url: directoryBase+'listItemsX/max/'+nouValor+'/first/{{first}}',
+            async: true,
+            success : function(resultat) {
+                $("."+'listing').html(resultat);
+            }
+        });
+    });    
+</script>

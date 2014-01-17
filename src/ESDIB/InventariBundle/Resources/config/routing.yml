@@ -1,12 +1,17 @@
 # Pàgina principal
-esdib_inventari_main:
-    path:     /
-    defaults: { _controller: ESDIBInventariBundle:Main:index }
+#esdib_inventari_main:
+#    path:     /
+#    defaults: { _controller: ESDIBInventariBundle:Main:index }
 
 # Mostra tots els Items de la taula 'Items'
 #listitems:
 #    path:     /items/
 #    defaults: { _controller: ESDIBInventariBundle:ListItems:show }
+
+
+index:
+    path:     /
+    defaults: { _controller: ESDIBInventariBundle:ListItems:show }
 
 # Mostra els items indicats per 'max_rows' els Items de la taula 'Items'
 show_items:
@@ -15,6 +20,11 @@ show_items:
 
 
 # Selecciona un Item
-item:
+addedit_item:
     path: /item/{id}
     defaults: { _controller: ESDIBInventariBundle:Item:show }
+    
+# Ajax: refrescar Items
+ESDIBInventariBundle_ajax_listItemsX:
+    pattern:  /listItemsX/max/{max}/first/{first}
+    defaults: { _controller: ESDIBInventariBundle:Ajax:listItemsX }

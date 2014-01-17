@@ -1,0 +1,60 @@
+<?php
+namespace ESDIB\InventariBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+* @ORM\Entity
+* @ORM\Table(name="proveidors")
+*/
+class Proveidor
+{
+	/**
+	* @ORM\Column(type="integer")
+	* @ORM\Id
+	* @ORM\GeneratedValue(strategy="AUTO")
+	*/
+	protected $id;
+	
+	/**
+	* @ORM\Column(type="string", length=100)
+	*/
+	protected $nom;
+	
+	/**
+	* @ORM\Column(type="string", length=150)
+	*/
+	protected $adreca;
+	
+	/**
+	* @ORM\Column(type="string", length=12)
+	*/
+	protected $telf1;
+	
+	/**
+	* @ORM\Column(type="string", length=12)
+	*/
+	protected $telf2;
+	
+	/**
+	* @ORM\Column(type="string", length=12)
+	*/
+	protected $fax;
+
+	/**
+	* @ORM\Column(type="string", length=100)
+	*/
+	protected $web;
+	
+	/**
+	* @ORM\Column(type="string", length=100)
+	*/
+	protected $email;
+	
+	/**
+	* @ORM\Column(type="string", length=100)
+	*/
+	protected $contacte;
+	
+
+}

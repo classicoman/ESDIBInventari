@@ -6,8 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class ListItemsController extends Controller
 {
-	/* Funció */
-    public function showAction($max,$first)
+    public function showAction($max=5,$first=0)
     {     
                 //Montam el Select: només 1 dels elements de l'array resultant
                 //activarà un valor del <select>
