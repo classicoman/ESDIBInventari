@@ -1,0 +1,36 @@
+<link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+<script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+
+<div style="width: 400px; padding: 10 10 10 10; background-color: #D5D5D5"
+    <form role="form">
+      <div class="form-group">
+        <label for="nom">Nom:</label>
+        <input type="text" class="form-control" id="nom" 
+               placeholder="Introduir nom" value="{{item.nom}}">
+      </div>
+      <div class="form-group">
+        <label for="nom">Descripcio:</label>
+        <textarea type="text" class="form-control" id="descripcio" 
+               placeholder="Introduir Descripció">{{item.descripcio}}</textarea>
+      </div>
+      <div class="form-group">
+        <label for="preu">Preu:</label>
+        <input type="number" class="form-control" id="preu" 
+               placeholder="Introduir Preu" value="{{item.preu}}">
+      </div>
+
+      <div class="form-group">
+        <label for="estat">Estat:</label>
+        <select class="selectLB form-control" id="{{field}}" name="{{field}}">
+            <option value="" class="optionField">estats</option>     
+        {% for fila in tabulacio %}
+                <option class="optionField" 
+                        value="{{fila.id}}" 
+                        {{ (fila.id == item.id) ? " selected=\"selected\" " : "" }}>
+                        {{fila.nom}}</option>
+        {% endfor %}
+        </select>
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</div>

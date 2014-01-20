@@ -20,11 +20,16 @@ show_items:
     defaults: { _controller: ESDIBInventariBundle:ListItems:show }
 
 
-# Selecciona un Item
+# Add or Edit Item
 addedit_item:
     path: /item/{id}
     defaults: { _controller: ESDIBInventariBundle:Item:show }
-    
+        
+# Delete Item
+del_item:
+    path: /item/del/{id}
+    defaults: { _controller: ESDIBInventariBundle:Item:delete }
+        
 # Ajax: refrescar Items
 ESDIBInventariBundle_ajax_listItemsX:
     pattern:  /listItemsX/max/{max}/first/{first}

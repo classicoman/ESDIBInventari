@@ -1,10 +1,29 @@
-    {# Aquest boci de codi llista els items #}
+<table class="listing">
+    <thead>
+        <tr>
+            {% for rotul in rotuls %}
+                   <td>{{rotul}}</td>
+            {% endfor %}
+        </tr></thead>  
+    <tbody>
     {% for fila in files %}
-	<tr>
-            <td>{{fila.id}}</td><td>
-	    <td>{{fila.nom}}</td>
-	    <td>{{fila.preu}}</td>
-            <td><a href="{{ path('addedit_item', {'id': fila.id}) }}"><img src="{{ asset('images/edit.jpg') }}" /></a></td>
-            <td><img src="{{ asset('images/delete.gif') }}" /></td>
-	</tr>	
+        <tr>
+            <td>{{fila.id}}</td>
+            <td>{{fila.nom}}</td>
+            <td>{{fila.preu}}</td>
+            <td>{{fila.descripcio}}</td>
+            <td>{{ (fila.dataalta) ? fila.dataalta|date('d-m-Y') : '' }}</td>
+            <td>{{ (fila.databaixa) ? fila.databaixa|date('d-m-Y') : '' }}</td>
+            <td>{{fila.estat}}</td>
+            <td><a class='edit' href="{{ path('addedit_item', {'id': fila.id}) }}">
+                    <img src="{{ asset('images/edit.jpg') }}" />
+                </a>
+            </td>
+            <td><a href="#" class='delete' id='{{ fila.id }}'>
+                <img src="{{ asset('images/delete.gif') }}" />
+                </a>
+            </td>
+        </tr>	
     {% endfor %}
+    </tbody>    
+</table>

@@ -6,10 +6,16 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
 * @ORM\Entity
-* @ORM\Table(name="items")
+* @ORM\Table(name="item")
 */
 class Item
 {
+        /**
+        * @ORM\ManyToOne(targetEntity="Estat", inversedBy="items")
+        * @ORM\JoinColumn(name="estat_id", referencedColumnName="id")
+        */
+        protected $estat;
+    
 	/**
 	* @ORM\Column(type="integer")
 	* @ORM\Id
@@ -23,31 +29,29 @@ class Item
 	protected $nom;
 	
 	/**
-	* @ORM\Column(type="decimal", scale=2)
+	* @ORM\Column(type="decimal", scale=2, nullable=true)
 	*/	
 	protected $preu;
 	
 	/**
-	* @ORM\Column(type="text")
+	* @ORM\Column(type="text", nullable=true)
 	*/	
 	protected $descripcio;
 
 	/**
-	* @ORM\Column(type="integer")
+	* @ORM\Column(type="integer", nullable=true)
 	*/	
 	protected $unitats;
 
 	/**
-	* @ORM\Column(type="date")
+	* @ORM\Column(type="date", nullable=true)
 	*/	
-	protected $data_alta;
+	protected $dataalta;
 
 	/**
-	* @ORM\Column(type="date")
+	* @ORM\Column(type="date", nullable=true)
 	*/	
-	protected $data_baixa;
-
-
+	protected $databaixa;
 	
 	 
 // MÈTODES
@@ -71,7 +75,6 @@ class Item
     public function setNom($nom)
     {
         $this->nom = $nom;
-
         return $this;
     }
 
@@ -94,7 +97,6 @@ class Item
     public function setPreu($preu)
     {
         $this->preu = $preu;
-
         return $this;
     }
 
@@ -117,7 +119,6 @@ class Item
     public function setDescripcio($descripcio)
     {
         $this->descripcio = $descripcio;
-
         return $this;
     }
 
@@ -140,7 +141,6 @@ class Item
     public function setUnitats($unitats)
     {
         $this->unitats = $unitats;
-
         return $this;
     }
 
@@ -155,48 +155,68 @@ class Item
     }
 
     /**
-     * Set data_alta
+     * Set estat
      *
-     * @param \DateTime $dataAlta
+     * @param \ESDIB\InventariBundle\Entity\Estat $estat
      * @return Item
      */
-    public function setDataAlta($dataAlta)
+    public function setEstat(\ESDIB\InventariBundle\Entity\Estat $estat = null)
     {
-        $this->data_alta = $dataAlta;
-
+        $this->estat = $estat;
         return $this;
     }
 
     /**
-     * Get data_alta
+     * Get estat
      *
-     * @return \DateTime 
+     * @return \ESDIB\InventariBundle\Entity\Estat 
      */
-    public function getDataAlta()
+    public function getEstat()
     {
-        return $this->data_alta;
+        return $this->estat;
     }
 
     /**
-     * Set data_baixa
+     * Set dataalta
      *
-     * @param \DateTime $dataBaixa
+     * @param \DateTime $dataalta
      * @return Item
      */
-    public function setDataBaixa($dataBaixa)
+    public function setDataalta($dataalta)
     {
-        $this->data_baixa = $dataBaixa;
-
+        $this->dataalta = $dataalta;
         return $this;
     }
 
     /**
-     * Get data_baixa
+     * Get dataalta
      *
      * @return \DateTime 
      */
-    public function getDataBaixa()
+    public function getDataalta()
     {
-        return $this->data_baixa;
+        return $this->dataalta;
+    }
+
+    /**
+     * Set databaixa
+     *
+     * @param \DateTime $databaixa
+     * @return Item
+     */
+    public function setDatabaixa($databaixa)
+    {
+        $this->databaixa = $databaixa;
+        return $this;
+    }
+
+    /**
+     * Get databaixa
+     *
+     * @return \DateTime 
+     */
+    public function getDatabaixa()
+    {
+        return $this->databaixa;
     }
 }

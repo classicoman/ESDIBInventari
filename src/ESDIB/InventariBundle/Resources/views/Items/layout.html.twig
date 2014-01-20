@@ -7,63 +7,64 @@
 
   </head>
 <body>
+    <div style="width:100%; display: inline-block; text-align: right">
+        <a href="{{ path( 'logout' ) }}">Logout</a>
+    </div>
+    <div id="listing_header">
+        <div id="pageName">Items Actius</div>
+        <div id="row_navigator">
+            <!-- First MAX_ROWS registers --> 
+            <div id="prev_and_next">
+                <div id="first_registers" onmouseover="" style="cursor: pointer;" 
+                     class="{{first!=0 ? "active" : "disabled"}}"
+                     onclick="window.location='{{ path( 'show_items',{'max': max, 'first': 0} ) }}'">
+                Principi</div>
 
+                <div id="prev_registers" onmouseover="" style="cursor: pointer;"
+                     class="{{first!=0 ? "active" : "disabled"}}"
+                     onclick="window.location='{{ path( 'show_items',{'max': max, 'first': first-max} ) }}'">
+                Previs</div>
+                <!-- Next MAX_ROWS registers --> 
+                <div id="next_registers" onmouseover="" style="cursor: pointer;" 
+                     class="{{ (first+max)<num_of_items ? "active" : "disabled" }}"
+                     onclick="window.location='{{ path( 'show_items',{'max': max, 'first': first+max} ) }}'">
+                Pròxs.</div>
+            </div>
 
-
-<div id="listing_header">
-    
-    <div id="pageName">Items Actius</div>
-    
-    <div id="row_navigator">
-        <!-- First MAX_ROWS registers --> 
-        <div id="prev_and_next">
-            <div id="first_registers" onmouseover="" style="cursor: pointer;" 
-                 class="{{first!=0 ? "active" : "disabled"}}"
-                 onclick="window.location='{{ path( 'show_items',{'max': max, 'first': 0} ) }}'">
-            Principi</div>
-                 
-            <div id="prev_registers" onmouseover="" style="cursor: pointer;"
-                 class="{{first!=0 ? "active" : "disabled"}}"
-                 onclick="window.location='{{ path( 'show_items',{'max': max, 'first': first-max} ) }}'">
-            Previs</div>
-            <!-- Next MAX_ROWS registers --> 
-            <div id="next_registers" onmouseover="" style="cursor: pointer;" 
-                 class="{{ (first+max)<num_of_items ? "active" : "disabled" }}"
-                 onclick="window.location='{{ path( 'show_items',{'max': max, 'first': first+max} ) }}'">
-            Pròxs.</div>
+            <div id="num_of_rows"> {{num_of_items}} items </div>
         </div>
-        
-        <div id="num_of_rows"> {{num_of_items}} items </div>
+
+        <div class="count_registers">
+            {% block select_rows %}{% endblock %}
+        </div>
     </div>
-    
-    <div class="count_registers">
-        {% block select_rows %}{% endblock %}
-    </div>
-    
-</div>
 
 <!-- PRINT FORM AND ROWS -->
 
 <!-- VIEWER --><!-- Rows -->
-    <table class="listing">
-        <thead><tr>
-            {% block rotuls %}{% endblock %}
-        </tr></thead>  
-        <tbody>
-            {% block files %}{% endblock %}
-        </tbody>        
-    </table>
+{% block listing %}
+{% endblock %}
+
+<input type="button" value="Nou+" onclick="window.location='/Symfony/web/app_dev.php/item/0'"/>
 </body>
 </html>
 
 
 <script>
+    //On delete Item
+    $('.delete').click ( function() {
+        if (confirm('Voleu eliminar aquest item?')) {
+            var directoryBase = window.location.origin + '/Symfony/web/app_dev.php/'; //xtoni
+            window.location = directoryBase+'item/del/'+$(this).attr('id');
+        }
+    });
+    
     // ON Change Num of Rows
-    $('#max_rows').change ( function(e) {
+    $('#max_rows').change ( function() {
         var nouValor = document.getElementById('max_rows').value;
         //Ajax mitjançant JQUERY
         //Directori base: la primera part és bona de treure, la segona no existeix si root està ben configurat.
-        var directoryBase = window.location.origin + '/Symfony/web/app_dev.php/';
+        var directoryBase = window.location.origin + '/Symfony/web/app_dev.php/'; //xtoni
         $.ajax({
             type: "GET", /* Crec que tanmateix, per defecte és GET - xxtoni */
             url: directoryBase+'listItemsX/max/'+nouValor+'/first/{{first}}',

@@ -6,10 +6,16 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
 * @ORM\Entity
-* @ORM\Table(name="items")
+* @ORM\Table(name="item")
 */
 class Item
 {
+        /**
+        * @ORM\ManyToOne(targetEntity="Estat", inversedBy="items")
+        * @ORM\JoinColumn(name="estat_id", referencedColumnName="id")
+        */
+        protected $estat;
+    
 	/**
 	* @ORM\Column(type="integer")
 	* @ORM\Id
@@ -23,31 +29,29 @@ class Item
 	protected $nom;
 	
 	/**
-	* @ORM\Column(type="decimal", scale=2)
+	* @ORM\Column(type="decimal", scale=2, nullable=true)
 	*/	
 	protected $preu;
 	
 	/**
-	* @ORM\Column(type="text")
+	* @ORM\Column(type="text", nullable=true)
 	*/	
 	protected $descripcio;
 
 	/**
-	* @ORM\Column(type="integer")
+	* @ORM\Column(type="integer", nullable=true)
 	*/	
 	protected $unitats;
 
 	/**
-	* @ORM\Column(type="date")
+	* @ORM\Column(type="date", nullable=true)
 	*/	
-	protected $data_alta;
+	protected $dataalta;
 
 	/**
-	* @ORM\Column(type="date")
+	* @ORM\Column(type="date", nullable=true)
 	*/	
-	protected $data_baixa;
-
-
+	protected $databaixa;
 	
 	 
 // MÈTODES
@@ -155,48 +159,71 @@ class Item
     }
 
     /**
-     * Set data_alta
+     * Set dataalta
      *
      * @param \DateTime $dataAlta
      * @return Item
      */
     public function setDataAlta($dataAlta)
     {
-        $this->data_alta = $dataAlta;
+        $this->dataalta = $dataAlta;
 
         return $this;
     }
 
     /**
-     * Get data_alta
+     * Get dataalta
      *
      * @return \DateTime 
      */
     public function getDataAlta()
     {
-        return $this->data_alta;
+        return $this->dataalta;
     }
 
     /**
-     * Set data_baixa
+     * Set databaixa
      *
      * @param \DateTime $dataBaixa
      * @return Item
      */
     public function setDataBaixa($dataBaixa)
     {
-        $this->data_baixa = $dataBaixa;
+        $this->databaixa = $dataBaixa;
 
         return $this;
     }
 
     /**
-     * Get data_baixa
+     * Get databaixa
      *
      * @return \DateTime 
      */
     public function getDataBaixa()
     {
-        return $this->data_baixa;
+        return $this->databaixa;
+    }
+
+    /**
+     * Set estat
+     *
+     * @param \ESDIB\InventariBundle\Entity\Estat $estat
+     * @return Item
+     */
+    public function setEstat(\ESDIB\InventariBundle\Entity\Estat $estat = null)
+    {
+        $this->estat = $estat;
+
+        return $this;
+    }
+
+    /**
+     * Get estat
+     *
+     * @return \ESDIB\InventariBundle\Entity\Estat 
+     */
+    public function getEstat()
+    {
+        return $this->estat;
     }
 }

@@ -8,14 +8,17 @@ use Symfony\Component\HttpFoundation\Response;
 
 require_once '_basic.php';
 
-/* http://stackoverflow.com/questions/13584591/how-to-integrate-ajax-with-symfony2 */
+/*
+ * Classe: AJAX. Incorpora tots els controladors de Ajax emprats a l'aplicació.
+ */
 class AjaxController extends Controller
 {
-    // max   maxim number of rows to show, qhe ha estat canviat per l'usuari
-    // first de quina fila començam a llistar
+
+    /*
+     * Llista tots els items
+     */
     public function listItemsXAction($max,$first)
-    {    
-        
+    {
         //Query
         $rows = $this->getDoctrine()
            ->getRepository('ESDIBInventariBundle:Item')
@@ -27,6 +30,7 @@ class AjaxController extends Controller
 			array('max' => $max,
                         //Màxim de files a mostrar
 			'first' => $first,
+                        'rotuls' => array('id','nom','preu'),                            
                         'files' => $items ));
     }
 }

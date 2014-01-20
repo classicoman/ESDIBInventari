@@ -26,13 +26,13 @@ class ListItemsController extends Controller
         //Mostra les files que necessitam
         $items = getItems($this, $rows, $max, $first);
 
-        //Redner Template
+        //Render Template
         return $this->render('ESDIBInventariBundle:Items:items.html.twig', 
                 array('files' => $items,
                 //Màxim de files a mostrar
                 'max' => $max, 
                 //Ròtuls de la taula
-                'rotuls' => array('id','nom','preu'),
+                'rotuls' => array('id','nom','preu','estat','descripcio','alta','baixa'),
                 //Nombre de files a mostrar, en CSS
                 'select_rows' => $select_rows,
                 //Número total d'items que hi ha a la taula

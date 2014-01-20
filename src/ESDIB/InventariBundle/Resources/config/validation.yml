@@ -1,0 +1,4 @@
+ESDIB\InventariBundle\Entity\Item:
+    properties:
+        nom:
+            - NotBlank: ~
