@@ -8,6 +8,7 @@
   </head>
 <body>
     <div style="width:100%; display: inline-block; text-align: right">
+        {% block username %}{% endblock %}
         <a href="{{ path( 'logout' ) }}">Logout</a>
     </div>
     <div id="listing_header">

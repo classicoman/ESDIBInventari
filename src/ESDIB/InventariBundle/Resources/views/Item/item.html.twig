@@ -1,1 +1,42 @@
-{{ form(form) }}
+<link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>    
+  
+<div style="width:400px; background-color: #dadada; padding: 10px; ">
+{{ form_start(form) }}
+    {{ form_errors(form) }}
+    <div class="form-group">
+        {{ form_label(form.nom) }}
+        {{ form_errors(form.nom) }}
+        {{ form_widget(form.nom, { 'attr': {'class': 'form-control'} }) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.preu) }}
+        {{ form_errors(form.preu) }}
+        {{ form_widget(form.preu, { 'attr': {'class': 'form-control'} }) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.descripcio) }}
+        {{ form_errors(form.descripcio) }}
+        {{ form_widget(form.descripcio, { 'attr': {'class': 'form-control'} }) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.dataalta) }}
+        {{ form_errors(form.dataalta) }}
+        {{ form_widget(form.dataalta, { 'attr': {'class': 'form-control'} }) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.databaixa) }}
+        {{ form_errors(form.databaixa) }}
+        {{ form_widget(form.databaixa, { 'attr': {'class': 'form-control'} }) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.estat) }}
+        {{ form_errors(form.estat) }}
+        {{ form_widget(form.estat, { 'attr': {'class': 'form-control'} }) }}
+    </div>
+    <div>
+        {{ form_widget(form.Guardar) }}
+    </div>
+{{ form_end(form) }}
+</div>

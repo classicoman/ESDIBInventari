@@ -9,7 +9,9 @@
         </select>
 {% endblock %}
 
-
+{% block username %}
+    {{ app.user.username }}
+{% endblock %}
 
 {% block listing %}
     {% include 'ESDIBInventariBundle:Items:itemsX.html.twig' %}

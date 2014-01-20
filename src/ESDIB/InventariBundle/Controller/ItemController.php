@@ -51,14 +51,14 @@ class ItemController extends Controller
 
         //Crea l'Objecte  form
         $form = $this->createFormBuilder($item)
-        ->add('nom', 'text')
-        ->add('preu', 'number')
-        ->add('descripcio', 'textarea')
-        ->add('dataalta', 'date')
-        ->add('databaixa', 'date')
+        ->add('nom', 'text',array('label' => 'Nom:'))
+        ->add('preu', 'number',array('label' => 'Preu:', 'required' => false))
+        ->add('descripcio', 'textarea',array('label' => 'Descripció:', 'required' => false))
+        ->add('dataalta', 'date',array('label' => 'Alta:', 'required' => false))
+        ->add('databaixa', 'date',array('label' => 'Baixa:', 'required' => false))
         //Es deixa a Symfony la tasca de detectar el tipus de input que hi convé: 
         //http://stackoverflow.com/questions/19710595/symfony-how-to-save-foreign-key-in-form-many-to-one
-        ->add('estat', null)
+        ->add('estat', null,array('label' => 'Selecciona Estat:'))
         ->add('Guardar', 'submit')
         ->getForm();
 
