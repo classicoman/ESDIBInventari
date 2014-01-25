@@ -2,3 +2,13 @@
 esdib_inventari:
     resource: "@ESDIBInventariBundle/Resources/config/routing.yml"
     prefix:   /
+    
+login:
+    path:     /login
+    defaults: { _controller: ESDIBInventariBundle:Security:login }
+login_check:
+    path: /login_check
+    # No importa posar controller, perquè el Firewall descrit a
+    # /app/config/security.yml  ho gestiona automàticament.
+logout:
+    path: /logout
